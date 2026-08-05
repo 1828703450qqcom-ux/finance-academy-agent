@@ -1,0 +1,45 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+
+# Node
+node_modules/
+frontend/dist/
+
+# Database
+*.db
+*.sqlite3
+
+# Uploads
+uploads/
+data/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Deploy scripts ( contain credentials, do NOT commit )
+deploy_*.py
+diag*.py
+test_*.py
+do_*.py
+upload_*.py
+sync_*.py
+remote_setup.sh
+debug_*.py
