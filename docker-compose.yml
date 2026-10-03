@@ -1,17 +1,19 @@
-version: '3.8'
-
 services:
   backend:
     build: ./backend
     container_name: finance-backend
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8000:8000"
     volumes:
       - ./uploads:/app/uploads
       - ./data:/app/data
     restart: unless-stopped
     environment:
-      - PYTHONUNBUFFERED=1
+      PYTHONUNBUFFERED: "1"
+      MINIMAX_API_URL: ${MINIMAX_API_URL:-https://minimax.chat/v1/chat/completions}
+      MINIMAX_API_KEY: ${MINIMAX_API_KEY:?Set MINIMAX_API_KEY in .env}
+      MINIMAX_MODEL: ${MINIMAX_MODEL:-MiniMax-M2.7-highspeed}
+      FINANCE_DB_PATH: /app/data/finance_agent.db
 
   frontend:
     build: ./frontend

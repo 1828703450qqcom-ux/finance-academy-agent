@@ -4,7 +4,8 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from datetime import datetime
 
-DB_PATH = os.path.join(os.path.dirname(__file__), "finance_agent.db")
+DB_PATH = os.getenv("FINANCE_DB_PATH", os.path.join(os.path.dirname(__file__), "finance_agent.db"))
+os.makedirs(os.path.dirname(os.path.abspath(DB_PATH)), exist_ok=True)
 engine = create_engine(f"sqlite:///{DB_PATH}", echo=False)
 SessionLocal = sessionmaker(bind=engine)
 Base = declarative_base()

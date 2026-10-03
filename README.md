@@ -1,5 +1,9 @@
 # 金融学院专属 AI Agent
 
+![金融学院 AI Agent：研究数据与分析看板](docs/assets/overview.png)
+
+[详细部署指南](docs/部署指南.md) · [Docker Compose](docker-compose.yml)
+
 > 基于 MiniMax 大模型的金融学院智能研究助手平台
 
 一站式金融学术研究辅助工具，集成 AI 对话、实证分析、量化策略、论文检索、宏观经济数据、AI 研报生成等功能，专为金融学研究场景设计。
@@ -116,47 +120,16 @@ finance-academy-agent/
 
 ## 快速开始
 
-### 环境要求
-
-- Python 3.11+
-- Node.js 18+
-- Docker（可选）
-
-### 1. 配置环境变量
+推荐先按[详细部署指南](docs/部署指南.md)配置模型密钥、备份目录和 HTTPS。仓库根目录执行：
 
 ```bash
 cp .env.example .env
-# 编辑 .env 填入你的 MiniMax API Key
+# 编辑 .env 并填写真实 MINIMAX_API_KEY
+docker compose up -d --build
+curl http://127.0.0.1/api/health
 ```
 
-### 2. 后端启动
-
-```bash
-cd backend
-pip install -r requirements.txt
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
-```
-
-### 3. 前端启动
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-访问 http://localhost:5173
-
-### 4. Docker 部署（可选）
-
-```bash
-docker-compose up -d
-```
-
-服务将在以下地址启动：
-- 前端：http://localhost:80
-- 后端 API：http://localhost:8000
-- API 文档：http://localhost:8000/docs
+Windows PowerShell 用 `Copy-Item .env.example .env`。浏览器打开 `http://localhost/`；本机开发的 Python/Node.js 启动步骤也在部署指南中。Compose 把数据库与上传文件持久化到仓库的 `data/` 和 `uploads/`。
 
 ---
 
