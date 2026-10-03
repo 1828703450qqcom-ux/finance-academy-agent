@@ -55,7 +55,7 @@ docker compose ps
 curl http://127.0.0.1/api/health
 ```
 
-Windows PowerShell 使用 `Copy-Item .env.example .env`。打开 **http://localhost/**。没有有效模型密钥时，健康检查可能正常，但 AI 请求无法成功。Python/Node.js 本地开发、HTTPS、更新与备份步骤见[详细部署指南](docs/部署指南.md)。
+Windows PowerShell 使用 `Copy-Item .env.example .env`。打开 [本地页面](http://localhost/)。没有有效模型密钥时，健康检查可能正常，但 AI 请求无法成功。Python/Node.js 本地开发、HTTPS、更新与备份步骤见[详细部署指南](docs/部署指南.md)。
 
 ## 目录速览
 
